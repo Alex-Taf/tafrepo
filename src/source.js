@@ -1,3 +1,1 @@
-let hw = 'hello world'
-
-alert(hw)
+import "./source.sass"
