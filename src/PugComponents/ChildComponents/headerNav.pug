@@ -1,0 +1,12 @@
+-const headerLogoText = "Тафинцева Галина Александровна"
+-const headerLogoImg = "https://via.placeholder.com/120"
+-const headerNavItems = ["Обо мне", "Достижения", "Портфолио", "Контакты"] 
+
+div.header-content
+    div.header-logo
+        div.header-logo-img
+            img(src=headerLogoImg)  
+        h1.header-logo-text #{headerLogoText}       
+    nav.header-nav
+        each item in headerNavItems
+            a.nav-item.header-nav-item(href="#") #{item}

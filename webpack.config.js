@@ -21,7 +21,8 @@ module.exports = {
     plugins: [
         new HTML_WEBPACK_PLUGIN({
             filename: 'index.html',
-            template: INPUTS.source + '/source.pug' 
+            template: INPUTS.source + '/source.pug',
+            minify: false
         }),
         new HTML_WEBPACK_PLUGIN({
             filename: 'test.html',
