@@ -24,10 +24,6 @@ module.exports = {
             template: INPUTS.source + '/source.pug',
             minify: false
         }),
-        new HTML_WEBPACK_PLUGIN({
-            filename: 'test.html',
-            template: INPUTS.source + '/test.pug' 
-        }),
         new MINI_CSS_EXTRACT_PLUGIN({
             filename: 'style.css'
         })
@@ -52,6 +48,14 @@ module.exports = {
                         loader: 'css-loader',
                         options: { sourceMap: true }
                     },  {
+                        loader: 'postcss-loader',
+                        options: { 
+                            sourceMap: true,
+                            config: {
+                                path: INPUTS.source + '/postcss.config.js'
+                            }
+                        }
+                    },   {
                         loader: 'sass-loader',
                         options: { sourceMap: true }
                     }

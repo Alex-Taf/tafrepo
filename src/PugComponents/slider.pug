@@ -1,0 +1,7 @@
+div.slider-wrapper
+    div.slider-length
+        -const sliderItems = ['https://picsum.photos/1000/600', 'https://picsum.photos/1000/600', 'https://picsum.photos/1000/600', 'https://picsum.photos/1000/600']
+        each item in sliderItems
+            div.slider-item
+                img.slider-item-img.img(src=item) 
+    div.slider-dots-wrapper     

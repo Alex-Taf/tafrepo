@@ -1,0 +1,37 @@
+.slider-wrapper
+    margin-top: 2rem
+    overflow: hidden
+    height: auto
+    .slider-length
+        display: inline-flex
+        flex-wrap: nowrap
+        height: auto
+        transition: .3s
+        .slider-item
+            position: relative
+            left: 0
+            &-img
+                width: 100%
+                height: 600px
+                object-fit: cover
+    .slider-dots-wrapper
+        display: flex
+        position: relative
+        left: calc(50% - 60px)
+        bottom: 50px
+        margin: auto
+        .slider-dots-item
+            width: 15px
+            height: 15px
+            border-radius: 50%
+            margin: 5px
+            background: white
+            transition: .2s
+            &:hover
+                cursor: pointer
+                transform: scale(1.2)
+
+.active
+    background: black !important
+    border: 2px solid white                             
+            

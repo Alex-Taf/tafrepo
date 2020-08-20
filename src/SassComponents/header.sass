@@ -2,25 +2,30 @@
 @import './variables'
 
 .header
-    padding: 1rem 3rem 1rem 3rem
-    min-height: 3rem
-    box-shadow: 0px 17px 15px 0px rgba(0,0,0,0.39)
     &-content
         display: flex
         justify-content: space-between
-        align-items: center    
+        align-items: center
+        transition: $transition-duration 
+        padding: 1rem 3rem 1rem 3rem
+        height: $header-content-height
+        box-shadow: 0px 17px 15px 0px rgba(0,0,0,0.39) 
+        background: white
+        width: 100% 
+        z-index: 2 
     &-logo
         display: flex
         align-items: center
         &-img
             img
+                display: block
                 border: 5px solid black
                 transition: $transition-duration
                 border-radius: 50%
-                width: 120px
-                height: 120px
+                width: $header-logo-image-size
+                height: $header-logo-image-size
         &-text
-            font-size: 2.66rem
+            font-size: $header-text-font-size
             margin-left: 2rem 
             transition: $transition-duration
         &:hover
@@ -34,6 +39,7 @@
         padding: 5px
         &-item
             margin-left: 1.5rem
+            font-size: $nav-item-font-size
             &::after
                 content: ""
                 display: block
@@ -41,4 +47,8 @@
                 transition: $transition-duration
                 width: 0
             &:hover::after
-                width: 100%      
+                width: 100%
+
+.sticky
+    position: fixed;
+    @include minimize(6.6rem)                                

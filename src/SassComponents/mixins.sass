@@ -3,4 +3,14 @@
     margin: 0
     padding: 0
     box-sizing: border-box
+
+@mixin h-base-settings()
+    margin: 0
+    padding: 0
+            
+@mixin minimize($value: false)
+    min-width: unset
+    @if $value
+        height: $value 
     
+            

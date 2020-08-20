@@ -1,8 +1,15 @@
 @import "./SassComponents/mixins"
 @import "./SassComponents/helpers"
 @import "./SassComponents/header"
+@import "./SassComponents/slider"
 
 *,
+*::before,
+*::after,
 body
     @include base-settings()
-    font-family: 'PT Sans', sans-serif    
+    font-family: 'PT Sans', sans-serif
+
+h1, h2, h3, h4, h5, h6
+    @include h-base-settings()
+            
