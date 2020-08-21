@@ -1,6 +1,6 @@
--const headerLogoText = "Тафинцева Галина Александровна"
+-const headerLogoText = "Portfolio"
 -const headerLogoImg = "https://via.placeholder.com/120"
--const headerNavItems = ["Обо мне", "Достижения", "Портфолио", "Контакты"] 
+-const headerNavItems = { "Обо мне": "#about", "Достижения": "#experience", "Портфолио": "#portfolio", "Контакты": "#contacts" }
 
 div.header-content
     div.header-logo
@@ -8,5 +8,5 @@ div.header-content
             img(src=headerLogoImg)  
         h1.header-logo-text #{headerLogoText}       
     nav.header-nav
-        each item in headerNavItems
-            a.nav-item.header-nav-item(href="#") #{item}
+        each value, key in headerNavItems
+            a.nav-item.header-nav-item(href=value) #{key}

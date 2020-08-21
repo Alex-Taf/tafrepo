@@ -1,3 +1,5 @@
+@import "variables"
+
 .nav-item
     display: block
     font-size: 2.66em
@@ -8,4 +10,41 @@
 .img
     display: block
     max-width: 100%
-    height: auto   
+    height: auto
+
+.title
+    font-size: 2rem
+    margin-bottom: 1rem 
+    &::after
+        content: ""
+        display: block
+        border-top: 5px solid black
+        transition: $transition-duration
+        width: 8rem       
+
+.block
+    display: flex
+    position: relative
+    justify-content: center
+    width: 100%
+    margin-bottom: 2rem
+    padding: 0 10rem 0 10rem
+    &-num
+        position: absolute
+        display: flex
+        top: 0
+        right: 0
+        height: 40px
+        span
+            font-size: 2rem
+        &::after
+            content: ""
+            display: block
+            border: 3px solid orange
+            height: 3px
+            width: 30px
+            align-self: center     
+
+.infoblock
+   padding: 1rem 2rem 1rem 2rem
+   border: 2px solid red                     

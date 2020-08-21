@@ -2,6 +2,7 @@
 @import "./SassComponents/helpers"
 @import "./SassComponents/header"
 @import "./SassComponents/slider"
+@import "./SassComponents/about"
 
 *,
 *::before,
@@ -9,6 +10,13 @@
 body
     @include base-settings()
     font-family: 'PT Sans', sans-serif
+    scroll-behavior: smooth
+
+.content
+    display: flex
+    flex-direction: column
+    justify-content: center
+    margin-top: 10rem   
 
 h1, h2, h3, h4, h5, h6
     @include h-base-settings()

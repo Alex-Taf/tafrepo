@@ -1,0 +1,39 @@
+-const aboutTitle = "Обо мне"
+-const aboutText = `Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.`
+
+div#about.about-wrapper.block
+    div.about-img
+        img.img(src="https://via.placeholder.com/300x350")
+    div.about-content
+        h2.about-content-title.title #{aboutTitle}
+        p.about-content-text.text #{aboutText}
+        div.about-content-person.infoblock
+            div.about-content-person-col
+                div.about-content-person-col-1
+                    p.about-content-person-name 
+                        b Имя: 
+                        span Галина
+                    p.about-content-person-age 
+                        b Возраст: 
+                        span 55
+                    p.about-content-person-experience 
+                        b Опыт работы: 
+                        span 32 года
+                div.about-content-person-col-2
+                    p.about-content-person-skype 
+                        b Skype: 
+                        span GalochkaT1965
+                    p.about-content-person-discord 
+                        b Discord: 
+                        span galochka
+                    p.about-content-person-email 
+                        b E-mail: 
+                        span GalochkaT1965@rambler.ru
+            hr            
+            div.about-conent-person-row
+                h3.about-content-person-phone 
+                    b Телефон: 
+                    span +7(920)-237-89-24
+    div.block-num
+        span 01                 
+

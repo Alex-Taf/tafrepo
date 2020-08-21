@@ -1,5 +1,6 @@
 const SLIDER = {
     el: {
+        wrapper: document.querySelector(".slider-wrapper"),
         length: document.querySelector(".slider-length"),
         items: document.querySelectorAll('.slider-item'),
         dots: null,
@@ -8,7 +9,8 @@ const SLIDER = {
     options: {
         width: undefined
     },
-    dotNumber: 0
+    dotNumber: 0,
+    delay: 0
 }
 
 SLIDER.el.items.setWidth = width => { 
@@ -32,6 +34,10 @@ SLIDER.setDots = () => {
     }
 }
 
+SLIDER.setSkipDelay = delay => {
+    SLIDER.delay = delay
+}
+
 SLIDER.init = () => {
     if (SLIDER.el.dots !== null) {
         SLIDER.el.dots[SLIDER.dotNumber].classList.add("active")
@@ -46,21 +52,41 @@ SLIDER.init = () => {
     }
 }
 
-SLIDER.autoSkip = delay => setInterval(() => {
-    if (SLIDER.dotNumber === 0 && SLIDER.el.dots[SLIDER.el.dots.length - 1].classList.contains("active")) {
-        SLIDER.el.dots[SLIDER.el.dots.length - 1].classList.remove("active")
-        SLIDER.el.dots[0].classList.add("active")
-        SLIDER.el.length.style.transform = `translateX(${0}px)`
-    } else {
-        SLIDER.el.dots[SLIDER.dotNumber].classList.remove("active")
+SLIDER.skip = () => {
+    if (SLIDER.dotNumber < SLIDER.el.items.length - 1) {
         SLIDER.dotNumber++
-        SLIDER.el.dots[SLIDER.dotNumber].classList.add("active")
-        SLIDER.el.length.style.transform = `translateX(${-SLIDER.options.width * SLIDER.dotNumber}px)`
-
-        if (SLIDER.dotNumber === SLIDER.el.dots.length - 1) {
-            SLIDER.dotNumber = 0
+        if (SLIDER.el.dots !== null) {
+            SLIDER.el.dots[SLIDER.dotNumber - 1].classList.remove("active")
+            SLIDER.el.dots[SLIDER.dotNumber].classList.add("active")
         }
+        SLIDER.el.length.style.transform = `translateX(${-SLIDER.options.width * SLIDER.dotNumber}px)`
+        if (SLIDER.dotNumber < 0) { SLIDER.dotNumber = SLIDER.el.items.length - 1 }
+    } else if (SLIDER.dotNumber === SLIDER.el.items.length - 1) {
+        if (SLIDER.el.dots !== null) {
+            SLIDER.el.dots[SLIDER.dotNumber].classList.remove("active")
+            SLIDER.el.dots[0].classList.add("active")
+        }
+        SLIDER.dotNumber = 0
+        SLIDER.el.length.style.transform = `translateX(${-SLIDER.options.width * SLIDER.dotNumber}px)`
     }
-}, delay)
+}
+
+window.addEventListener("load", (e) => {
+    clearInterval(SLIDER.timer)
+
+    SLIDER.timer = setInterval(() => {
+        SLIDER.skip()
+    }, SLIDER.delay)
+})
+
+SLIDER.el.wrapper.addEventListener("mouseover", (e) => {
+    clearInterval(SLIDER.timer)
+})
+
+SLIDER.el.wrapper.addEventListener("mouseout", (e) => {
+    SLIDER.timer = setInterval(() => {
+        SLIDER.skip()
+    }, SLIDER.delay)
+})
 
 export default SLIDER
